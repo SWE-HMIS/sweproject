@@ -5,6 +5,10 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://sweproject-production-9e02.up.railway.app/api/:path*"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
