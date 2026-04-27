@@ -1,4 +1,4 @@
-# HMIS — Improved version
+# HMIS
 
 Hospital Management Information System.
 **Stack:** React (Vite) + Tailwind · Node.js (Express) · MySQL 8 · JWT auth · RBAC.
