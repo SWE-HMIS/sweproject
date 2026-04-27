@@ -114,7 +114,9 @@ router.patch('/:id', requireRole('admin', 'receptionist'), async (req, res) => {
     [
       b.firstName ?? null,
       b.lastName ?? null,
-      b.dateOfBirth ?? null,
+      b.dateOfBirth && b.dateOfBirth !== ""
+        ? b.dateOfBirth.slice(0, 10)
+        : null,
       b.gender ?? null,
       b.phone ?? null,
       b.email ?? null,
