@@ -22,6 +22,7 @@ export default function PharmacyPage() {
   }, []);
 
   const addItem = async (e) => {
+    
     e.preventDefault();
     await api('/api/inventory/items', { method: 'POST', body: JSON.stringify(form) });
     setForm({ name: '', sku: '', quantity: 0, reorderThreshold: 10, expiryDate: '' });
