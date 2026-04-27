@@ -11,7 +11,7 @@ const blankForm = () => ({ patientId: '', notes: '', status: 'pending', items: [
 
 const round2 = (n) => Math.round(Number(n || 0) * 100) / 100;
 const fmt = (n) => `Rs. ${round2(n).toFixed(2)}`;
-
+//This ensures smooth correctness of the billing page client side
 export default function BillingPage() {
   const { user } = useAuth();
   const role = user?.role;
