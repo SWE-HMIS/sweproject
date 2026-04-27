@@ -50,7 +50,7 @@ INSERT INTO inventory_items (sku, name, category, quantity, unit, reorder_thresh
 INSERT INTO icu_beds (bed_code, status, patient_id, notes) VALUES
 ('ICU-01', 'occupied', @p3, 'Post-surgical'),
 ('ICU-02', 'available', NULL, NULL),
-('ICU-03', 'cleaning', NULL, NULL);
+('ICU-03', 'occupied', NULL, 'Unavailable');
 
 INSERT INTO emergency_team (name, role_title, phone, is_on_call) VALUES
 ('Dr. Patel', 'Trauma lead', '555-4001', 1),
@@ -63,7 +63,7 @@ INSERT INTO payroll_records (staff_id, period_start, period_end, gross_amount, d
 
 INSERT INTO system_alerts (severity, category, title, message) VALUES
 ('warning', 'inventory', 'Low stock: Exam gloves', 'Quantity below reorder threshold.'),
-('info', 'beds', 'ICU occupancy', 'One bed in cleaning; monitor capacity.');
+('info', 'beds', 'ICU occupancy', 'One bed unavailable; monitor capacity.');
 
 INSERT INTO notifications (user_id, channel, subject, body, sent_at) VALUES
 (@recv, 'in_app', 'Appointment reminder', 'Patient John Smith has an appointment tomorrow.', NULL);
