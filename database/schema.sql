@@ -281,7 +281,7 @@ CREATE TABLE inventory_transactions (
 CREATE TABLE icu_beds (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   bed_code VARCHAR(20) NOT NULL UNIQUE,
-  status ENUM('available', 'occupied', 'cleaning', 'reserved') NOT NULL DEFAULT 'available',
+  status ENUM('available', 'occupied', 'reserved') NOT NULL DEFAULT 'available',
   patient_id INT UNSIGNED,
   notes VARCHAR(500),
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
