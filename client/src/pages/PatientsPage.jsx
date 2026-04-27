@@ -121,15 +121,29 @@ export default function PatientsPage() {
 
   const saveEdit = async (e) => {
     e.preventDefault();
-    setMsg('');
-    setSuccessMsg('');
+    setMsg("");
+    setSuccessMsg("");
+
     if (!editPatientId) {
-      setMsg('Select a patient to edit.');
+      setMsg("Select a patient to edit.");
       return;
     }
+
+    const cleanedForm = {
+      ...editForm,
+      dateOfBirth: editForm.dateOfBirth || null,
+    };
+
     try {
-      await api(`/api/patients/${editPatientId}`, { method: 'PATCH', body: JSON.stringify(editForm) });
-      setSuccessMsg('Patient updated.');
+      await api(`/api/patients/${editPatientId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cleanedForm),
+      });
+
+      setSuccessMsg("Patient updated.");
       load();
     } catch (ex) {
       setMsg(ex.message);
